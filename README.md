@@ -42,7 +42,7 @@ BTLweb_Nh-m2/
 
 
 3. 🔧 Hướng dẫn chạy website
-link page "https://huymonsterhuman-eng.github.io/BTLweb_Nh-m2/"
+link page  https://huymonsterhuman-eng.github.io/BTL_WebBDS/
 
 4. 🧪 Kiểm thử
 Nhóm đã kiểm thử website trên:
@@ -65,4 +65,5 @@ Hình ảnh từ Unsplash, RandomUser
 GitHub Docs về GitHub Pages
 6. 📝 Ghi chú
 Toàn bộ mã nguồn được commit đầy đủ bởi các thành viên nhóm theo đúng phần việc đã phân công.
+
 
