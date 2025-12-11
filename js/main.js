@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize popup except on specific pages
     const currentPage = currentLocation.split('/').pop().toLowerCase();
-    const pagesWithoutPopup = ['about.html', 'agents.html', 'properties.html', 'contact.html'];
+    const pagesWithoutPopup = ['about.html', 'agents.html', 'properties.html', 'contact.html', 'blog1.html', 'blog2.html', 'blog3.html'];
     if (!pagesWithoutPopup.includes(currentPage)) {
         initializePopup();
     }
