@@ -1,0 +1,15 @@
+/* CSS Variables for Theme */
+:root {
+    --primary: #1a365d;
+    --secondary: #e53e3e;
+    --accent: #2d3748;
+    --light: #f7fafc;
+    --dark: #2d3748;
+    --text: #4a5568;
+    --text-light: #718096;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+
+

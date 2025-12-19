@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Details | Luxury Estates</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Luxury<span>Estates</span></a>
+            <button class="menu-toggle" aria-label="Toggle navigation menu">
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="properties.html">Properties</a></li>
+                <li><a href="agents.html">Agents</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="tel:+15551234567" class="btn">
+                    <i class="fas fa-phone"></i> Call Now
+                </a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Property Detail Hero -->
+    <section class="property-detail-hero">
+        <div class="container">
+            <a href="properties.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Back to Properties
+            </a>
+        </div>
+    </section>
+
+    <!-- Property Detail Content -->
+    <section class="property-detail-content">
+        <div class="container">
+            <div class="property-detail-grid">
+                <!-- Main Content -->
+                <div class="property-detail-main">
+                    <!-- Image Gallery -->
+                    <div class="property-gallery">
+                        <div class="gallery-main">
+                            <img id="main-image" src="image/properties/property-1.jpg" alt="Property Image">
+                        </div>
+                        <div class="gallery-thumbs">
+                            <img src="image/properties/property-1.jpg" alt="Thumbnail" class="thumb active" onclick="changeMainImage(this.src)">
+                            <img src="image/properties/property-2.jpg" alt="Thumbnail" class="thumb" onclick="changeMainImage(this.src)">
+                            <img src="image/properties/property-3.jpg" alt="Thumbnail" class="thumb" onclick="changeMainImage(this.src)">
+                            <img src="image/properties/property-4.jpg" alt="Thumbnail" class="thumb" onclick="changeMainImage(this.src)">
+                        </div>
+                    </div>
+
+                    <!-- Property Info -->
+                    <div class="property-detail-info">
+                        <div class="property-header">
+                            <h1 id="property-title">Skyline Penthouse</h1>
+                            <p id="property-address" class="property-address-large">
+                                <i class="fas fa-map-marker-alt"></i> 123 Downtown Ave, Metropolitan City
+                            </p>
+                        </div>
+
+                        <div class="property-price-large" id="property-price">$1,250,000</div>
+
+                        <div class="property-features-large">
+                            <div class="feature-item">
+                                <i class="fas fa-bed"></i>
+                                <span><strong id="property-beds">3</strong> Bedrooms</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-bath"></i>
+                                <span><strong id="property-baths">2</strong> Bathrooms</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span><strong id="property-area">2,200</strong> sqft</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fas fa-car"></i>
+                                <span><strong id="property-parking">2</strong> Parking</span>
+                            </div>
+                        </div>
+
+                        <!-- Description -->
+                        <div class="property-description">
+                            <h2>Description</h2>
+                            <p id="property-description">
+                                Experience luxury living at its finest in this stunning Skyline Penthouse. 
+                                This exquisite property offers breathtaking panoramic views of the city skyline 
+                                and features top-of-the-line finishes throughout. The open-concept living space 
+                                is perfect for entertaining, with floor-to-ceiling windows that flood the home 
+                                with natural light. The gourmet kitchen boasts premium appliances and custom 
+                                cabinetry, while the master suite includes a spa-like bathroom and walk-in closet. 
+                                Located in the heart of downtown, you'll have access to world-class amenities 
+                                including a rooftop terrace, fitness center, and concierge services.
+                            </p>
+                        </div>
+
+                        <!-- Amenities -->
+                        <div class="property-amenities">
+                            <h2>Amenities</h2>
+                            <div class="amenities-grid">
+                                <div class="amenity-item">
+                                    <i class="fas fa-swimming-pool"></i>
+                                    <span>Swimming Pool</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <i class="fas fa-dumbbell"></i>
+                                    <span>Fitness Center</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <i class="fas fa-concierge-bell"></i>
+                                    <span>Concierge</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <i class="fas fa-parking"></i>
+                                    <span>Parking Garage</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <i class="fas fa-wifi"></i>
+                                    <span>High-Speed Internet</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>24/7 Security</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <i class="fas fa-dog"></i>
+                                    <span>Pet Friendly</span>
+                                </div>
+                                <div class="amenity-item">
+                                    <i class="fas fa-snowflake"></i>
+                                    <span>Central AC</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="property-location">
+                            <h2>Location</h2>
+                            <div class="location-map">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.184132576894!2d-73.98811768459398!3d40.75889597932681!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25855c6480299%3A0x55194ec5a1ae072e!2sTimes%20Square!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" 
+                                    width="100%" 
+                                    height="400" 
+                                    style="border:0; border-radius: 8px;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <aside class="property-sidebar">
+                    <!-- Contact Form -->
+                    <div class="contact-card" id="contact">
+                        <h3>Request Information</h3>
+                        <form class="property-contact-form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4" placeholder="I'm interested in this property..."></textarea>
+                            </div>
+                            <button type="submit" class="btn" style="width: 100%;">
+                                <i class="fas fa-paper-plane"></i> Send Request
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <a href="tel:+15551234567" class="btn" style="width: 100%; margin-bottom: 1rem;">
+                            <i class="fas fa-phone"></i> Call Now
+                        </a>
+                        <a href="#" class="btn btn-outline" style="width: 100%;" onclick="openPopup('schedule-visit'); return false;">
+                            <i class="fas fa-calendar"></i> Schedule Visit
+                        </a>
+                    </div>
+
+                    <!-- Property Details -->
+                    <div class="property-details-card">
+                        <h3>Property Details</h3>
+                        <div class="detail-row">
+                            <span>Property ID:</span>
+                            <strong id="property-id">PROP-001</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span>Type:</span>
+                            <strong id="property-type">Penthouse</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span>Year Built:</span>
+                            <strong id="property-year">2020</strong>
+                        </div>
+                        <div class="detail-row">
+                            <span>Status:</span>
+                            <strong class="status-available">Available</strong>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Related Properties -->
+    <section class="related-properties">
+        <div class="container">
+            <div class="section-title">
+                <h2>Similar Properties</h2>
+                <p>You might also be interested in</p>
+            </div>
+            <div class="properties-grid">
+                <!-- Related Property 1 -->
+                <div class="property-card">
+                    <div class="property-img">
+                        <img src="image/properties/property-2.jpg" alt="Modern Apartment">
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">$895,000</div>
+                        <h3>Waterfront Residence</h3>
+                        <p class="property-address">456 Harbor View, Coastal City</p>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>2 Beds</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span>2.5 Baths</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>1,800 sqft</span>
+                            </div>
+                        </div>
+                        <div class="property-actions">
+                            <a href="property-detail.html?id=2" class="btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Property 2 -->
+                <div class="property-card">
+                    <div class="property-img">
+                        <img src="image/properties/property-3.jpg" alt="Luxury Condo">
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">$1,550,000</div>
+                        <h3>Urban Oasis Loft</h3>
+                        <p class="property-address">789 Central Park, Metro City</p>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>4 Beds</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span>3 Baths</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>2,800 sqft</span>
+                            </div>
+                        </div>
+                        <div class="property-actions">
+                            <a href="property-detail.html?id=3" class="btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Property 3 -->
+                <div class="property-card">
+                    <div class="property-img">
+                        <img src="image/properties/property-4.jpg" alt="Modern Apartment">
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">$750,000</div>
+                        <h3>City View Apartment</h3>
+                        <p class="property-address">321 Urban Street, Metro City</p>
+                        <div class="property-features">
+                            <div class="feature">
+                                <i class="fas fa-bed"></i>
+                                <span>2 Beds</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bath"></i>
+                                <span>2 Baths</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-ruler-combined"></i>
+                                <span>1,500 sqft</span>
+                            </div>
+                        </div>
+                        <div class="property-actions">
+                            <a href="property-detail.html?id=4" class="btn">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Luxury Estates</h3>
+                    <p>Your premier partner for luxury apartment sales in prime metropolitan locations.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="properties.html"><i class="fas fa-chevron-right"></i> Properties</a></li>
+                        <li><a href="agents.html"><i class="fas fa-chevron-right"></i> Our Agents</a></li>
+                        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Bank Academy, Chua Boc</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@luxuryestates.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9am-6pm</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for the latest property listings and market insights.</p>
+                    <form class="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Luxury Estates.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile quick actions -->
+    <div class="mobile-cta">
+        <a href="tel:+15551234567" class="btn"><i class="fas fa-phone"></i> Call</a>
+        <a href="mailto:info@luxuryestates.com" class="btn btn-outline"><i class="fas fa-comment-dots"></i> Message</a>
+    </div>
+
+    <script src="js/property-data.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/property-detail.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
