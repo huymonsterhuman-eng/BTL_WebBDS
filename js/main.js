@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const priceRange = document.getElementById('filter-price').value;
 
             const properties = document.querySelectorAll('.property-card');
+            let visibleCount = 0;
 
             properties.forEach(card => {
                 let isVisible = true;
@@ -81,8 +82,26 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (priceRange.includes('+') ? price < min : (price < min || price > max)) isVisible = false;
                 }
 
+                if (isVisible) visibleCount++;
                 card.style.display = isVisible ? 'block' : 'none';
             });
+
+            // Hiển thị thông báo nếu không tìm thấy kết quả
+            const grid = document.querySelector('.properties-grid');
+            let noResultsMsg = document.getElementById('no-results-msg');
+
+            if (visibleCount === 0) {
+                if (!noResultsMsg) {
+                    noResultsMsg = document.createElement('div');
+                    noResultsMsg.id = 'no-results-msg';
+                    noResultsMsg.textContent = 'No Properties match filter';
+                    noResultsMsg.style.cssText = 'text-align: center; width: 100%; padding: 2rem; grid-column: 1 / -1; font-size: 1.2rem; color: #666;';
+                    grid.appendChild(noResultsMsg);
+                }
+                noResultsMsg.style.display = 'block';
+            } else if (noResultsMsg) {
+                noResultsMsg.style.display = 'none';
+            }
         };
 
         filterForm.addEventListener('submit', function(e) {
