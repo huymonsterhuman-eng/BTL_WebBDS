@@ -46,6 +46,24 @@ function initMobileNavigation() {
 function initNavigation() {
     setActiveNavLink();
     initMobileNavigation();
+
+    // Ensure clicking "Home" will show popup immediately on the Home page
+    // or set a flag so the popup shows immediately after navigation.
+    const homeLinks = document.querySelectorAll('a[href="index.html"], a[href="/"], a[href="./index.html"]');
+    homeLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            // When navigating to Home, make popup appear immediately on load
+            sessionStorage.setItem('showPopupImmediately', 'true');
+
+            // If we're already on Home and popup element exists, show it now
+            const popup = document.getElementById('customerPopup');
+            if (popup) {
+                popup.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            }
+        });
+    });
 }
+
 
 
