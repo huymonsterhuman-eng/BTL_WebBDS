@@ -21,20 +21,23 @@ function initContactForm() {
 }
 
 // Property search form handling
-const searchForm = document.querySelector('.search-form');
-if (searchForm) {
-    searchForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const location = document.getElementById('location').value;
-        const propertyType = document.getElementById('property-type').value;
-        const priceRange = document.getElementById('price-range').value;
+function initSearchForm() {
+    const searchForm = document.querySelector('.search-form');
+    if (searchForm) {
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const location = document.getElementById('location').value;
+            const propertyType = document.getElementById('property-type').value;
+            const priceRange = document.getElementById('price-range').value;
 
-        // Redirect to properties page with filters
-        window.location.href = `properties.html?location=${location}&type=${propertyType}&price=${priceRange}`;
-    });
+            // Redirect to properties page with filters
+            window.location.href = `properties.html?location=${location}&type=${propertyType}&price=${priceRange}`;
+        });
+    }
 }
 // Filter form handling
-const filterForm = document.querySelector('.filter-form');
+function initFilterForm() {
+    const filterForm = document.querySelector('.filter-form');
     if (filterForm) {
         const applyFilters = () => {
             // Lấy giá trị từ bộ lọc
@@ -118,6 +121,7 @@ const filterForm = document.querySelector('.filter-form');
             applyFilters();
         }
     }
+}
 
 // Newsletter form handling
 function initNewsletterForms() {
@@ -163,5 +167,3 @@ function initAllForms() {
     initNewsletterForms();
     initPropertyContactForm();
 }
-
-
