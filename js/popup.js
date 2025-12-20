@@ -2,8 +2,74 @@
 
 // Initialize popup
 function initializePopup() {
+    // Track home visits
+    let visitCount = parseInt(sessionStorage.getItem('homeVisitCount') || '0');
+    visitCount++;
+    sessionStorage.setItem('homeVisitCount', visitCount);
+
     // Create popup HTML
     const popupHTML = `
+        <style>
+            .popup-minimized {
+                position: fixed;
+                bottom: 20px;
+                left: 20px;
+                background: #fff;
+                padding: 15px;
+                border-radius: 8px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+                z-index: 9998;
+                display: none;
+                flex-direction: column;
+                gap: 8px;
+                width: 260px;
+                border-left: 4px solid #e73c3cff;
+                animation: slideUp 0.5s ease-out;
+            }
+            .popup-minimized h4 {
+                margin: 0;
+                color: #333;
+                font-size: 16px;
+            }
+            .popup-minimized p {
+                margin: 0;
+                font-size: 13px;
+                color: #666;
+                line-height: 1.4;
+            }
+            .popup-minimized .mini-actions {
+                display: flex;
+                gap: 10px;
+                margin-top: 5px;
+            }
+            .popup-minimized button {
+                padding: 6px 12px;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 12px;
+                border: none;
+                transition: all 0.3s ease;
+            }
+            .btn-mini-primary {
+                background: #e73c3cff;
+                color: white;
+                flex: 1;
+            }
+            .btn-mini-primary:hover {
+                background: #e73c3cff;
+            }
+            .btn-mini-close {
+                background: #f5f5f5;
+                color: #666;
+            }
+            .btn-mini-close:hover {
+                background: #e0e0e0;
+            }
+            @keyframes slideUp {
+                from { transform: translateY(20px); opacity: 0; }
+                to { transform: translateY(0); opacity: 1; }
+            }
+        </style>
         <div class="popup-overlay" id="customerPopup">
             <div class="popup-modal">
                 <button class="close-popup" id="closePopup">&times;</button>
@@ -56,6 +122,16 @@ function initializePopup() {
                 </form>
             </div>
         </div>
+        
+        <!-- Minimized Popup -->
+        <div class="popup-minimized" id="minimizedPopup">
+            <h4>Need Advice?</h4>
+            <p>Get expert recommendations for your dream property.</p>
+            <div class="mini-actions">
+                <button class="btn-mini-primary" id="openFullPopup">Contact Us</button>
+                <button class="btn-mini-close" id="closeMiniPopup">Close</button>
+            </div>
+        </div>
     `;
 
     // Add popup to body
@@ -65,19 +141,32 @@ function initializePopup() {
     const closePopup = document.getElementById('closePopup');
     const laterBtn = document.getElementById('laterBtn');
     const popupForm = document.getElementById('popupForm');
+    
+    // Minimized elements
+    const minimizedPopup = document.getElementById('minimizedPopup');
+    const openFullPopupBtn = document.getElementById('openFullPopup');
+    const closeMiniPopupBtn = document.getElementById('closeMiniPopup');
 
     // Show popup logic
     const showImmediately = sessionStorage.getItem('showPopupImmediately');
     
-    if (showImmediately === 'true') {
-        popup.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        sessionStorage.removeItem('showPopupImmediately');
+    if (visitCount > 1) {
+        // Show minimized popup immediately for returning visitors
+        minimizedPopup.style.display = 'flex';
     } else {
-        setTimeout(() => {
+        // First visit: Show full popup
+        if (showImmediately === 'true') {
             popup.style.display = 'flex';
             document.body.style.overflow = 'hidden';
-        }, 3000);
+            sessionStorage.removeItem('showPopupImmediately');
+        } else {
+            setTimeout(() => {
+                if (minimizedPopup.style.display !== 'flex') {
+                    popup.style.display = 'flex';
+                    document.body.style.overflow = 'hidden';
+                }
+            }, 3000);
+        }
     }
 
     // Set flag for next refresh
@@ -89,6 +178,8 @@ function initializePopup() {
     function closePopupModal() {
         popup.style.display = 'none';
         document.body.style.overflow = 'auto';
+        // Show minimized popup when closing full popup
+        minimizedPopup.style.display = 'flex';
     }
 
     closePopup.addEventListener('click', closePopupModal);
@@ -96,6 +187,17 @@ function initializePopup() {
 
     popup.addEventListener('click', function(e) {
         if (e.target === popup) closePopupModal();
+    });
+    
+    // Minimized popup events
+    openFullPopupBtn.addEventListener('click', function() {
+        minimizedPopup.style.display = 'none';
+        popup.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    });
+    
+    closeMiniPopupBtn.addEventListener('click', function() {
+        minimizedPopup.style.display = 'none';
     });
 
     popupForm.addEventListener('submit', function(e) {
@@ -106,7 +208,9 @@ function initializePopup() {
         
         if (name && email && phone) {
             alert('Thank you! Our expert will contact you within 24 hours with personalized advice.');
-            closePopupModal();
+            popup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            minimizedPopup.style.display = 'none'; // Hide both
             this.reset();
         } else {
             alert('Please fill in all required fields (Name, Email, Phone).');
@@ -148,5 +252,3 @@ function resetPopupSettings() {
     sessionStorage.removeItem('showPopupImmediately');
     console.log('Popup settings reset. Refresh the page to see popup again.');
 }
-
-
