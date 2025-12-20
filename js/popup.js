@@ -2,6 +2,9 @@
 
 // Initialize popup
 function initializePopup() {
+    // Check if user has opted out of popup
+    if (localStorage.getItem('popupDontShowAgain') === 'true') return;
+
     // Track home visits
     let visitCount = parseInt(sessionStorage.getItem('homeVisitCount') || '0');
     visitCount++;
@@ -10,6 +13,9 @@ function initializePopup() {
     // Create popup HTML
     const popupHTML = `
         <style>
+            .popup-modal {
+                animation: slideUp 0.5s ease-out;
+            }
             .popup-minimized {
                 position: fixed;
                 bottom: 20px;
@@ -119,6 +125,9 @@ function initializePopup() {
                         <button type="submit" class="btn">Get Free Consultation</button>
                         <button type="button" class="btn btn-outline" id="laterBtn">Maybe Later</button>
                     </div>
+                    <div style="text-align: center; margin-top: 10px;">
+                        <button type="button" id="dontShowAgainBtn" style="background: none; border: none; color: #888; font-size: 12px; cursor: pointer; text-decoration: underline;">Don't show again</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -140,6 +149,7 @@ function initializePopup() {
     const popup = document.getElementById('customerPopup');
     const closePopup = document.getElementById('closePopup');
     const laterBtn = document.getElementById('laterBtn');
+    const dontShowAgainBtn = document.getElementById('dontShowAgainBtn');
     const popupForm = document.getElementById('popupForm');
     
     // Minimized elements
@@ -184,6 +194,15 @@ function initializePopup() {
 
     closePopup.addEventListener('click', closePopupModal);
     laterBtn.addEventListener('click', closePopupModal);
+    
+    if (dontShowAgainBtn) {
+        dontShowAgainBtn.addEventListener('click', function() {
+            localStorage.setItem('popupDontShowAgain', 'true');
+            popup.style.display = 'none';
+            document.body.style.overflow = 'auto';
+            minimizedPopup.style.display = 'none';
+        });
+    }
 
     popup.addEventListener('click', function(e) {
         if (e.target === popup) closePopupModal();
