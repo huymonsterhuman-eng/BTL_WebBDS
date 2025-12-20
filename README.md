@@ -4,14 +4,18 @@ Bài tập lớn thiết kế web bất động sản của nhóm 2
 ## 👥 Thành viên nhóm
 
 **Lương Quốc Huy** - Phụ trách:
-- Trang `index.html`: hero, form tìm kiếm, list "Featured Properties"
-- Trang `properties.html`: danh sách nhiều căn hộ, thông tin chi tiết, nút Book/Quote, bộ lọc (form)
+- Trang `index.html`: hero, list "Featured Properties"
+- Trang `properties.html`: danh sách nhiều căn hộ, thông tin chi tiết, nút Book/Quote.
 - Trang `about.html`: giới thiệu công ty, câu chuyện, giá trị cốt lõi
 - Trang `agents.html`: danh sách agent, ảnh, mô tả, contact button
 - Trang `contact.html`: thông tin liên hệ, form gửi message, link sang properties & agents
-- Trang `property-detail.html`: trang chi tiết sản phẩm với gallery, thông tin đầy đủ, form liên hệ
 - Trang `blog1.html`, `blog2.html`, `blog3.html`: các bài blog về bất động sản
 
+**Hiếu** - Phụ trách:
+- Popup, Bộ lọc (form)
+- Responsive trên Mobile
+**Minh Châu** - Phụ trách: 
+- Trang `property-detail.html`: trang chi tiết sản phẩm với gallery, thông tin đầy đủ, form liên hệ
 **CSS Architecture:**
 - `variables.css`: CSS Variables (màu sắc, shadow, transition)
 - `base.css`: Reset CSS và base styles
@@ -106,7 +110,42 @@ web-bất-động-sản-mới/
 ```
 
 ---
+// ...existing code...
+## 📂 Cấu trúc thư mục dự án (new)
 
+- [index.html](index.html) — Trang chủ
+- [about.html](about.html) — Giới thiệu công ty
+- [properties.html](properties.html) — Danh sách bất động sản
+- [property-detail.html](property-detail.html) — Trang chi tiết sản phẩm (dynamic)
+- [agents.html](agents.html) — Danh sách nhân viên môi giới
+- [contact.html](contact.html) — Trang liên hệ
+- [blog1.html](blog1.html), [blog2.html](blog2.html), [blog3.html](blog3.html) — Các bài blog
+
+- css/
+  - [css/main.css](css/main.css) — File chính (import tất cả)
+  - [css/variables.css](css/variables.css)
+  - [css/base.css](css/base.css)
+  - [css/components.css](css/components.css)
+  - [css/layout.css](css/layout.css)
+  - [css/sections.css](css/sections.css)
+  - [css/pages.css](css/pages.css)
+  - [css/modals.css](css/modals.css)
+  - [css/responsive.css](css/responsive.css)
+  - [css/style.css](css/style.css) — File cũ / backup
+
+- js/
+  - [js/main.js](js/main.js) — Khởi tạo module chung
+  - [js/property-detail.js](js/property-detail.js) — Xử lý trang chi tiết
+  - [js/property-data.js](js/property-data.js) — Dữ liệu bất động sản
+  - [js/popup.js](js/popup.js) — Popup tư vấn
+  - [js/forms.js](js/forms.js) — Form validation và xử lý
+  - [js/navigation.js](js/navigation.js) — Menu & điều hướng
+
+- [image/](image/) — Thư mục ảnh (hero, properties, agents, blog, testimonials ...)
+- [README.md](README.md) — Tài liệu dự án
+
+Ghi chú: cấu trúc theo modular (CSS tách module, JS theo chức năng), dễ bảo trì và mở rộng.
+// ...existing code...
 ## 🔧 Hướng dẫn sử dụng
 
 ### Chạy website local:
