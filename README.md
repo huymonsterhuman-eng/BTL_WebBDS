@@ -9,13 +9,14 @@ Bài tập lớn thiết kế web bất động sản của nhóm 2
 - Trang `about.html`: giới thiệu công ty, câu chuyện, giá trị cốt lõi
 - Trang `agents.html`: danh sách agent, ảnh, mô tả, contact button
 - Trang `contact.html`: thông tin liên hệ, form gửi message, link sang properties & agents
-- Trang `blog1.html`, `blog2.html`, `blog3.html`: các bài blog về bất động sản
 
 **Hiếu** - Phụ trách:
-- Popup, Bộ lọc (form)
+- Popup, Bộ lọc (form), search box
 - Responsive trên Mobile
 **Minh Châu** - Phụ trách: 
 - Trang `property-detail.html`: trang chi tiết sản phẩm với gallery, thông tin đầy đủ, form liên hệ
+- Trang `properties.html`: danh sách nhiều căn hộ, thông tin chi tiết, nút Book/Quote.
+- Trang `blog1.html`, `blog2.html`, `blog3.html`: các bài blog về bất động sản
 **CSS Architecture:**
 - `variables.css`: CSS Variables (màu sắc, shadow, transition)
 - `base.css`: Reset CSS và base styles
@@ -66,51 +67,7 @@ Dự án xây dựng website giới thiệu bất động sản với các trang
 
 ---
 
-## 📂 Cấu trúc thư mục dự án
 
-```
-web-bất-động-sản-mới/
-│
-├── index.html              # Trang chủ
-├── about.html              # Trang giới thiệu
-├── properties.html         # Trang danh sách bất động sản
-├── property-detail.html    # Trang chi tiết sản phẩm
-├── agents.html             # Trang danh sách agents
-├── contact.html            # Trang liên hệ
-├── blog1.html              # Blog bài 1
-├── blog2.html              # Blog bài 2
-├── blog3.html              # Blog bài 3
-│
-├── css/
-│   ├── main.css            # File chính (import tất cả)
-│   ├── variables.css       # CSS Variables
-│   ├── base.css            # Reset & base styles
-│   ├── components.css      # Components tái sử dụng
-│   ├── layout.css          # Header, footer, mobile CTA
-│   ├── sections.css        # Sections trang chủ
-│   ├── pages.css           # Page-specific styles
-│   ├── modals.css          # Popup modals
-│   ├── responsive.css      # Media queries
-│   └── style.css           # File CSS cũ (backup)
-│
-├── js/
-│   ├── main.js             # JavaScript chính
-│   └── property-detail.js  # JavaScript cho trang chi tiết
-│
-├── image/
-│   ├── hero/               # Ảnh hero sections
-│   ├── properties/         # Ảnh bất động sản
-│   ├── agents/             # Ảnh agents
-│   ├── blog/               # Ảnh blog
-│   ├── testimonials/       # Ảnh testimonials
-│   ├── about/              # Ảnh about
-│   └── contact/            # Ảnh contact
-│
-└── README.md               # File này
-```
-
----
-// ...existing code...
 ## 📂 Cấu trúc thư mục dự án (new)
 
 - [index.html](index.html) — Trang chủ
